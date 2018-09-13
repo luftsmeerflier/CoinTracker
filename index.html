@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Exchange tracker</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./reset.css">
+	<!-- Load c3.css -->
+	<link href="c3/c3.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./menubarLinks.css">
+	<link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+	<main>
+		<nav aria-label="Cryptocurrency asset selection">
+			<div class="nav-container">
+				<h1>Compare Exchange Rates</h1>
+				<div class="select-exchange">
+				<h1>Select a cryptocurrency:</h1>
+			  	<ul id="menubar1"
+			      role="menubar"
+			      aria-label="Cryptocurrencies on exchanges">
+				    <li>
+						<a role="menuitem"
+							aria-haspopup="true"
+							aria-expanded="false"
+							href="#"
+							tabindex="0">
+						BTC
+						</a>
+						<ul role="menu" aria-label="About">
+					        <li role="none">
+								<a role="menuitem"
+									class='BTC'
+									href="#"
+									tabindex="-1">
+								BTC
+								</a>
+					        </li>
+					        <li role="none">
+								<a role="menuitem"
+									class='ETH'
+									href="#"
+									tabindex="-1">
+								ETH
+								</a>
+						    </li>
+						    <li role="none">
+								<a role="menuitem"
+									class='LTC'
+									href="#"
+									tabindex="-1">
+								LTC
+								</a>
+					        </li>      
+				      	</ul>
+				    </li>   
+				</ul>
+			    </div>
+			</div>
+		</nav>
+		<div class ='content'>
+
+			<div id="chart"></div>
+				
+			</div>
+			<div class='header'>
+				<h2>Exchange Prices:</h2>
+			</div>
+
+			<div class='content-exchanges'></div>
+			
+		</div>
+	</main>
+	<footer aria-label="Cryptocurrency asset selection">
+		<div class="nav-container">
+		 	<ul>
+			    <li><a href="#" class="BTC"><p>USD-BTC</p></a></li>
+			    <li class='buffer'>|</li>
+			    <li><a href="#" class="ETH"><p>USD-ETH</p></a></li>
+				<li class='buffer'>|</li>
+			    <li><a href="#" class="LTC"><p>USD-LTC</p></a></li>
+		 	</ul>
+		</div>
+	</footer>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src='./js/jquery-3.3.1.min.js' type="text/javascript"></script>
+<script src="d3/d3.min.js" charset="utf-8"></script>
+<script src="c3/c3.min.js"></script>
+<script type="text/javascript" src="./js/MenubarItemLinks.js"></script>
+<script type="text/javascript" src="./js/MenubarLinks.js"></script>
+<script type="text/javascript" src="./js/PopupMenuItemLinks.js"></script>
+<script type="text/javascript" src="./js/PopupMenuLinks.js"></script>
+<script type="text/javascript">
+  var menubar = new Menubar(document.getElementById('menubar1'));
+  menubar.init();
+</script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>

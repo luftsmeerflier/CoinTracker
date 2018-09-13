@@ -1,0 +1,161 @@
+/** {
+	outline: 1px dotted red;	
+}*/
+
+body {
+	max-height: 100vh;
+}
+
+/*navigation*/
+h1 {
+	margin: 10px;
+	margin-right: 0;
+	font-size: 2em;
+	display: inline;
+}
+
+h2 {
+	font-size: 1.3em;
+	margin-bottom: 5px;
+}
+
+
+nav h1, nav p, .buffer {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	float: right;
+	margin-right: 0;
+	margin-left: 0;
+	padding-left: 0;
+	text-align: center;
+}
+/*Dropdown elements (BTC, ETH, LTC)*/
+ul[role="menubar"] ul[role="menu"] li a {
+	max-width: 83px;
+	margin-left: -10px;
+}
+
+.logo {
+	max-width: 25px;
+}
+
+
+li{
+	display: inline-block;
+	padding: 0 2em;
+}
+
+ul > li:last-of-type {
+/*	padding-right: 0.25em;
+*/}
+
+.buffer {
+	padding: 1em;
+}
+
+nav{
+	background-color: black;
+}
+
+.nav-container {
+	width: 94%;
+	margin: 0 auto;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+   	-webkit-flex-flow: row wrap;
+    justify-content: space-between;
+
+}
+
+.select-exchange {
+	display: flex;
+ 	justify-content: center;
+	/* align-self: center;    <---- REMOVE */
+ 	align-items: center;   /* <---- NEW    */
+}
+
+/*------------Content---------------*/
+.content {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 1.5%;
+}
+
+.header {
+	display: block;
+	width: 75%;
+	margin: 0 auto;
+}
+
+#chart {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.c3 svg {
+	margin-left: -15px;
+}
+
+.content-exchanges {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.exchange {
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	outline: 2px solid gray;
+	padding: 2em;
+	margin-bottom: 1.5em;
+}
+
+.exchange p {
+	padding: 0.5em;
+	padding-left: 0;
+}
+
+.left {
+	float: left;
+	width: 40%;
+}
+
+.right {
+	float: right;
+	width: 40%;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/*************footer***************/
+footer {
+	background-color: black;
+	margin-top: 1%;
+}
+
+footer > .nav-container {
+	width: 94%;
+	margin: 0 auto;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+   	-webkit-flex-flow: row wrap;
+}
+
+body > footer > div > ul {
+	margin: 0 auto;
+}
+
+footer > .nav-container p {
+	color: white;
+}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ARIA Drop-down Menu</title>
+  <link rel="stylesheet" type="text/css" href="./menubarLinks.css">
+</head>
+<body>
+
+
+<nav aria-label="Mythical University">
+  <ul id="menubar1"
+      role="menubar"
+      aria-label="Mythical University">
+    <li>
+      <a role="menuitem"
+         aria-haspopup="true"
+         aria-expanded="false"
+         href="#"
+         tabindex="0">
+        Fiat
+      </a>
+      <ul role="menu" aria-label="About">
+        <li role="none">
+          <a role="menuitem"
+             href="mb-about.html#overview"
+             tabindex="-1">
+            USD
+          </a>
+        </li>
+        <li role="none">
+          <a role="menuitem"
+             href="mb-about.html#admin"
+             tabindex="-1">
+            EUR
+          </a>
+        </li>
+        <li role="none">
+          <a id="menubar113"
+             role="menuitem"
+             href="#"
+             aria-haspopup="true"
+             aria-expanded="false"
+             tabindex="-1">
+            GBP
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    <li>
+      <a role="menuitem"
+         aria-haspopup="true"
+         aria-expanded="false"
+         href="#"
+         tabindex="-1">
+        Crypto
+      </a>
+      <ul role="menu" aria-label="Admissions">
+        <li role="none">
+          <a role="menuitem"
+             href="mb-admissions.html#apply"
+             tabindex="-1">
+            BTC
+          </a>
+        </li>
+        <li role="none">
+          <a role="menuitem"
+             href="#"
+             aria-haspopup="true"
+             aria-expanded="false"
+             tabindex="-1">
+            LTC
+          </a>
+        </li>
+      </ul>
+    </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<script type="text/javascript" src="MenubarItemLinks.js"></script>
+<script type="text/javascript" src="MenubarLinks.js"></script>
+<script type="text/javascript" src="PopupMenuItemLinks.js"></script>
+<script type="text/javascript" src="PopupMenuLinks.js"></script>
+<script type="text/javascript">
+  var menubar = new Menubar(document.getElementById('menubar1'));
+  menubar.init();
+</script>
+</body>
+</html>

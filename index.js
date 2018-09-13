@@ -45,27 +45,28 @@ function APIcall(choice) {
 }
 
 $(document).ready(function() {
-  APIcall("btcusd");
-
   $(".BTC").on("click", e => {
     e.preventDefault();
-    let choice = "btcusd";
     $("#menubar1 > li > a").html("BTC");
-    APIcall(choice);
+    $(".landing-page").hide();
+    $(".results-page").show();
+    APIcall("btcusd");
   });
 
   $(".ETH").on("click", e => {
     e.preventDefault();
     $("#menubar1 > li > a").html("ETH");
-    let choice = "ethusd";
-    APIcall(choice);
+    $(".landing-page").hide();
+    $(".results-page").show();
+    APIcall("ethusd");
   });
 
   $(".LTC").on("click", e => {
     e.preventDefault();
     $("#menubar1 > li > a").html("LTC");
-    let choice = "ltcusd";
-    APIcall(choice);
+    $(".landing-page").hide();
+    $(".results-page").show();
+    APIcall("ltcusd");
   });
 });
 

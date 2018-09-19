@@ -25,6 +25,13 @@ a {
   text-decoration: none;
 }
 
+#loader {
+  display: none;
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 /*ul {
   float: right;
   margin-right: 0;
@@ -253,6 +260,10 @@ article > p, .ask-bid {
   clear: both;
 }
 
+.exchange-prices-header {
+  display: none;
+}
+
 
 main {
   background-image: url('img/background.jpg');
@@ -263,6 +274,7 @@ main {
   background-color: white;
   width: 75%;
   margin: 0 auto;
+  min-height: 100vh;
 }
 /*************footer***************/
 footer {

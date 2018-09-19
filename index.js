@@ -28,7 +28,11 @@ let results = {
   ltcusd: []
 };
 
+let chart;
+
 function APIcall(choice) {
+   $('#loader').show();
+   results[choice] = [];
   let settings = {
     async: true,
     crossDomain: true,
@@ -38,9 +42,11 @@ function APIcall(choice) {
       Authorization: "Token fb5499d2f5cc9b01b6e80864abe8be92fbebdd7f"
     }
   };
-  $.ajax(settings).done(function(response) {
-    response.forEach(exchange => results[choice].push(exchange));
-    renderResult(choice);
+    $.ajax(settings).done(function(response) {
+      $('#loader').hide();
+      $('.exchange-prices-header').show();
+      response.forEach(exchange => results[choice].push(exchange));
+      renderResult(choice);
   });
 }
 
@@ -55,17 +61,17 @@ $(document).ready(function() {
 
   $(".ETH").on("click", e => {
     e.preventDefault();
+    $('.results-page').empty();
     $("#menubar1 > li > a").html("ETH");
     $(".landing-page").hide();
-    $(".results-page").show();
     APIcall("ethusd");
   });
 
   $(".LTC").on("click", e => {
     e.preventDefault();
+    $('.results-page').empty();
     $("#menubar1 > li > a").html("LTC");
     $(".landing-page").hide();
-    $(".results-page").show();
     APIcall("ltcusd");
   });
 });
@@ -116,8 +122,7 @@ function graph(choice, compare, high, min, bars, ask, bid) {
   for (i in results[choice]) {
     compare.push(high);
   }
-
-  let chart = c3.generate({
+  chart = c3.generate({
     bindto: "#chart",
     data: {
       columns: [bars, compare, ask, bid],

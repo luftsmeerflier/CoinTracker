@@ -11,10 +11,12 @@
 <body>
 	<main>
 		<nav aria-label="Cryptocurrency asset selection">
-			<div class="nav-container">
-				<h1>Cointracker</h1>
+			<div class="nav-first-half">
+				<h1 class='title'>Cointracker</h1>
+			</div>
+			<div class="nav-second-half">
 				<div class="select-exchange">
-					<h1>Select a cryptocurrency:</h1>
+					<h1 class="select">Select a cryptocurrency:</h1>
 					<ul id="menubar1"
 					role="menubar"
 					aria-label="Cryptocurrencies on exchanges">
@@ -58,16 +60,10 @@
 </div>
 </nav>
 <div class="landing-page">
-	<section class='info'>
-		<article>
-			<p class="ask-bid">Track cryptocurrencies across top exchanges</p>
-			<img class="graph-example" src="img/example.png" alt="example-of-coin-comparison-graph">
-			<div>
-				<p class="ask-bid"><span class="ask">Ask</span>: The amount sellers want <span class="bid">Bid</span>: What buyers are willing to pay</p>
-				<p class="ask-bid">Choose a crytocurrency in the upper right</p>
-			</div>
-		</article>
+	<section class='track-cryptos'> 
+			<p class="track">Track cryptocurrencies across top exchanges:</p>
 	</section>
+
 	<section class='lists'>
 		<ul class="logo-ul">
 			<li class='logo-li'>
@@ -86,23 +82,15 @@
 				<img class="poloniex logo" src="img/Poloniex.png" alt="Poloniex-logo">
 			</li>
 		</ul>
-		<ul class="box-container">
-			<li class="box-1">
-				<p>
-					Bitcoin is the original cryptocurrency. It offers a secure, hypothetically tamper-proof ledger for transactions. It is a form of value backed by artificial scarcity and a hypothetically tamper-proof ledger tracking all transactions, that is auditable and transparent. Find out more about this revolutionary technology: 
-				</p>
-			</li>
-			<li class="box-1">
-				<p>
-					Ethereum is a cryptocurrency and blockchain that offers a 'world virtual machine' that is programmable through Turing-complete languages like Solidity. It offers the unmatched security of the blockchain and this platform for creating decentralized applications, or Dapps. Find out more: 
-				</p>
-			</li>
-			<li class="box-1">
-				<p>
-					Litecoin was one of the first 'alt-coins', or alternatives to Bitcoin. It offers its own blockchain and lower transaction costs than Bitcoin, in addition of Bitcoin's initial advantages. Find out about this alternative cryptocurrency here: 
-				</p>
-			</li>
-		</ul>
+	</section>
+
+	<section class='ask-bid'>
+		<p class="ask">
+ 			<span class="green">Ask</span>: The amount sellers want 
+ 		</p>
+ 		<p class="bid">
+ 			<span class="red">Bid</span>: What buyers are willing to pay
+ 		</p>
 	</section>
 </div>
 
@@ -114,8 +102,7 @@
 	<div class='header' hidden>
 		<h2 class="exchange-prices-header">Exchange Prices:</h2>
 	</div>
-	<div class='content-exchanges'>				
-</div>
+	<div class='content-exchanges'></div>
 </div>
 
 

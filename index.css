@@ -60,10 +60,7 @@ ul > li:last-of-type {
 
 nav {
   background-color: black;
-}
-
-.nav-container {
-  width: 94%;
+  width: 100%;
   margin: 0 auto;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -72,51 +69,67 @@ nav {
   justify-content: space-between;
 }
 
+.nav-first-half, .nav-second-half {
+  width: 49%;
+}
+
+.first-half {
+  margin-left: 1.5%;
+}
+.nav-second-half {
+  margin-right: 1.5%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select {
+  font-size: 1.5em;
+}
+
+
+.title {
+  display: inline-block;
+}
+
 .select-exchange {
   display: flex;
-  justify-content: center;
-  /* align-self: center;    <---- REMOVE */
+  justify-content: space-between;
   align-items: center; /* <---- NEW    */
 }
 
-
-
-
 .landing-page {
   height: calc(100vh - 57.3333px);
-  background-image: url('./img/background.jpg');
-  background-size: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  width: 96.5%;
+  margin: 0 auto;
 
 }
 
-.ask {
-  color: green;
-}
-
-.bid {
+.red {
   color: red;
 }
 
-.info {
-
+.green {
+  color: green;
 }
 
-.lists {
-
+.track-cryptos, .ask-bid {
+  background-color: black;
+  padding: 0.7% 0;
+  margin: 0 auto;
+  width: 100%;
 }
-
 
 .logo-ul {
+  width: 100%;
   background-color: white;
   display: flex;
-  width: 96.65%;
-  max-height: 200px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  margin: 1.25% auto;
+  padding: 5% 0;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .logo-li {
@@ -140,9 +153,9 @@ nav {
 /*.gdax {
   height: 65px;
 }*/
-
+/*
 article {
-  height: 405px;
+  height:;
   width: 94.1%;
   background-color: black;
   margin: 0 auto;
@@ -150,6 +163,15 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap: wrap;
+}*/
+
+.ask, .bid, .track {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 250%;
+  color: white;
+  width: 100%;
 }
 
 .graph-example {
@@ -160,13 +182,7 @@ article {
 .landing-page-header {
   color: white;
   margin: 0 auto;
-}
-
-article > p, .ask-bid {
-  color: white;
-  text-align: center;
-  font-size: 3em;
-  margin: 5px;
+  width: 96.5%;
 }
 
 .box-container {
@@ -175,7 +191,7 @@ article > p, .ask-bid {
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -212,6 +228,7 @@ article > p, .ask-bid {
 .content {
   margin: 0 auto;
   margin-top: 1.5%;
+  flex-shrink: 1;
 }
 
 .header {
@@ -226,10 +243,6 @@ article > p, .ask-bid {
 
 .c3 svg {
   margin-left: -15px;
-}
-
-.content-exchanges {
-  margin: 0 auto;
 }
 
 .exchange {
@@ -271,15 +284,23 @@ main {
 }
 
 .results-page {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   width: 75%;
   margin: 0 auto;
   min-height: 100vh;
+  justify-content: center;
 }
+
+.exchange {
+  margin: 0 auto;
+  width: 98.8%;
+}
+
 /*************footer***************/
 footer {
   background-color: black;
-  margin-top: 1%;
 }
 
 footer > .nav-container {

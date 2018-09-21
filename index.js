@@ -30,8 +30,11 @@ let results = {
 
 let chart;
 
-function APIcall(choice) {
+function APIcall(choice) {    
+   $('.content').hide();
+   $('.header').hide();
    $('#loader').show();
+   $('.content-exchanges').hide();
    results[choice] = [];
   let settings = {
     async: true,
@@ -44,6 +47,10 @@ function APIcall(choice) {
   };
     $.ajax(settings).done(function(response) {
       $('#loader').hide();
+      $('.results-page').show();
+      $('.content').show();
+      $('.header').show();
+      $('.content-exchanges').show()
       $('.exchange-prices-header').show();
       response.forEach(exchange => results[choice].push(exchange));
       renderResult(choice);
@@ -51,8 +58,10 @@ function APIcall(choice) {
 }
 
 $(document).ready(function() {
+   $('.results-page').hide();
   $(".BTC").on("click", e => {
     e.preventDefault();
+    // $('.results-page').html(' ');
     $("#menubar1 > li > a").html("BTC");
     $(".landing-page").hide();
     $(".results-page").show();
@@ -61,17 +70,19 @@ $(document).ready(function() {
 
   $(".ETH").on("click", e => {
     e.preventDefault();
-    $('.results-page').empty();
+    // $('.results-page').html(' ');
     $("#menubar1 > li > a").html("ETH");
     $(".landing-page").hide();
+    $(".results-page").show();
     APIcall("ethusd");
   });
 
   $(".LTC").on("click", e => {
     e.preventDefault();
-    $('.results-page').empty();
+    // $('.results-page').html(' ');
     $("#menubar1 > li > a").html("LTC");
     $(".landing-page").hide();
+    $(".results-page").show();
     APIcall("ltcusd");
   });
 });

@@ -2,7 +2,7 @@
 
 [Cointracker app](olyskoop.github.io/CoinTracker "Coin Tracker")
 
-Track cryptocurrencies prices across top exchanges. 
+Track cryptocurrencies across top exchanges. 
 
 ## Using the app
 

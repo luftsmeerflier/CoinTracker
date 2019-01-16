@@ -31,11 +31,11 @@ let results = {
 let chart;
 
 function APIcall(choice) {    
-   $('.content').hide();
-   $('.header').hide();
-   $('#loader').show();
-   $('.content-exchanges').hide();
-   results[choice] = [];
+  $('.content').hide();
+  $('.header').hide();
+  $('#loader').show();
+  $('.content-exchanges').hide();
+  results[choice] = [];
   let settings = {
     async: true,
     crossDomain: true,
@@ -93,6 +93,32 @@ function renderResult(choice) {
   let prices = [];
   let ask = ["ask"];
   let bid = ["bid"];
+
+  let newArray = results[choice].map((obj, index)=>{
+      let exchangeList = ["binance", "gdax", "bitfinex", "bitstamp", "poloniex"];
+      if('detail' in obj){
+        delete obj['detail'];
+        let exchange = {"exchange" : exchangeList[index], "pair" : choice, "price" :0, bid: 0};
+        Object.assign(obj, exchange)
+      }
+      console.log(obj);
+  });
+
+  // results[choice].forEach(item => {
+  //   if(item.exchange !== undefined){
+  //     bars.push(item.price);
+  //     ask.push(item.ask);
+  //     bid.push(item.bid);
+  //   } else {
+  //     bars.push(0);
+  //     ask.push(0);
+  //     bid.push(0);
+  //   }
+  // });
+//   2: {exchange: "bitstamp", pair: "btcusd", price: 3577.01, ask: 3577.01, bid: 3575.21}
+// 3: {detail: "Request was throttled. Expected available in 1 second."}
+
+
   bars = bars.concat(results[choice].map(exchange => exchange.price));
   prices.push(...results[choice].map(exchange => exchange.price));
   ask.push(...results[choice].map(exchange => exchange.ask));

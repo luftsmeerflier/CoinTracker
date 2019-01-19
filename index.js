@@ -140,6 +140,7 @@ function renderResult(choice) {
   exchangeStats(choice, high, ask, bid);
 }
 
+
 function exchangeStats(choice, high, ask, bid) {
   let colors = ["blue", "black", "orange", "green", "gray"];
   let contentExchanges = results[choice].map(
@@ -163,8 +164,10 @@ function exchangeStats(choice, high, ask, bid) {
 }
 
 function graph(choice, compare, high, min, bars, ask, bid) {
+  let categories = [];
   for (i in results[choice]) {
     compare.push(high);
+    categories.push(results[choice][i]['exchange']);
   }
   chart = c3.generate({
     bindto: "#chart",
@@ -180,7 +183,8 @@ function graph(choice, compare, high, min, bars, ask, bid) {
     axis: {
       x: {
         type: "category",
-        categories: ["Binance", "GDAX", "Bitfinex", "Bitstamp", "Poloniex"]
+        // categories: ["Binance", "GDAX", "Bitfinex", "Bitstamp", "Poloniex"]
+        categories: categories
       },   
       y: {
         high: high,

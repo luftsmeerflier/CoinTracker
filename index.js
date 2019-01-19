@@ -45,15 +45,19 @@ function APIcall(choice) {
       Authorization: "Token fb5499d2f5cc9b01b6e80864abe8be92fbebdd7f"
     }
   };
-    $.ajax(settings).done(function(response) {
-      $('#loader').hide();
-      $('.results-page').show();
-      $('.content').show();
-      $('.header').show();
-      $('.content-exchanges').show()
-      $('.exchange-prices-header').show();
-      response.forEach(exchange => results[choice].push(exchange));
-      renderResult(choice);
+  $.ajax(settings).done(function(response) {
+    $('#loader').hide();
+    $('.results-page').show();
+    $('.content').show();
+    $('.header').show();
+    $('.content-exchanges').show()
+    $('.exchange-prices-header').show();
+    response.forEach(exchange => {
+      if('exchange' in exchange){
+        results[choice].push(exchange)
+      };
+    });
+    renderResult(choice);
   });
 }
 
@@ -87,6 +91,7 @@ $(document).ready(function() {
   });
 });
 
+//A new array with the results returned, minus errors
 function renderResult(choice) {
   //moved bars into function, passed into graph. So, non-global.
   let bars = ["price in USD"];
@@ -94,35 +99,37 @@ function renderResult(choice) {
   let ask = ["ask"];
   let bid = ["bid"];
 
-  let newArray = results[choice].map((obj, index)=>{
-      let exchangeList = ["binance", "gdax", "bitfinex", "bitstamp", "poloniex"];
-      if('detail' in obj){
-        delete obj['detail'];
-        let exchange = {"exchange" : exchangeList[index], "pair" : choice, "price" :0, bid: 0};
-        Object.assign(obj, exchange)
-      }
-      console.log(obj);
+  // let bars = ["price in USD", 100, 200, 300, 400];
+  // let prices = ["price in USD", 100, 200, 300, 400];
+  // let ask = ["ask", 100, 200, 300, 400];
+  // let bid = ["bid", 100, 200, 300, 400];
+
+  //let exchangeList = ["binance", "gdax", "bitfinex", "bitstamp", "poloniex"];
+  // let newArray = results[choice].map(obj => { 
+
+  // const resObj = [ 
+  //   { exchange: "bitstamp", pair: "btcusd", price: 3577.01, ask: 3577.01, bid: 3575.21},
+  //   { exchange: "gdax", pair: "btcusd", price: 3577.01, ask: 3577.01, bid: 3575.21},
+  //   { exchange: "exchange", pair: "btcusd", price: 3577.01, ask: 3577.01, bid: 3575.21},
+  //   { error: "request throttled"},
+  //   { error: "request throttled"}
+  // ]
+
+  // for(obj of results[choice]){
+  results[choice].forEach(item => {
+      bars.push(item.price);
+      ask.push(item.ask);
+      bid.push(item.bid);
   });
 
-  // results[choice].forEach(item => {
-  //   if(item.exchange !== undefined){
-  //     bars.push(item.price);
-  //     ask.push(item.ask);
-  //     bid.push(item.bid);
-  //   } else {
-  //     bars.push(0);
-  //     ask.push(0);
-  //     bid.push(0);
-  //   }
-  // });
-//   2: {exchange: "bitstamp", pair: "btcusd", price: 3577.01, ask: 3577.01, bid: 3575.21}
-// 3: {detail: "Request was throttled. Expected available in 1 second."}
 
 
-  bars = bars.concat(results[choice].map(exchange => exchange.price));
+
+
+  //bars = bars.concat(newArray).map(exchange => exchange.price);
   prices.push(...results[choice].map(exchange => exchange.price));
-  ask.push(...results[choice].map(exchange => exchange.ask));
-  bid.push(...results[choice].map(exchange => exchange.bid));
+  //ask.push(...results[choice].map(exchange => exchange.ask));
+  //bid.push(...results[choice].map(exchange => exchange.bid));
 
   let min = Math.min(...prices);
   let high = Math.max(...prices);
@@ -174,7 +181,7 @@ function graph(choice, compare, high, min, bars, ask, bid) {
       x: {
         type: "category",
         categories: ["Binance", "GDAX", "Bitfinex", "Bitstamp", "Poloniex"]
-      },
+      },   
       y: {
         high: high,
         min: min,
